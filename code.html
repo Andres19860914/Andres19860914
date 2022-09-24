@@ -1,0 +1,31 @@
+$DesktopPath = [Environment]::GetFolderPath("Desktop")
+cd $DesktopPath
+mkdir Andres
+cd Andres
+git clone https://github.com/Andres19860914/Andres19860914.git
+
+
+---------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------
+#usage .\POST.ps1 - -
+
+param (
+    [Parameter(Mandatory=$true)][string]$ticket, #string
+    [Parameter(Mandatory=$true)][string]$client #string
+)
+
+----------------------------------------------------------------------------
+$combo = $ticket + " - " + $client
+
+$DesktopPath = [Environment]::GetFolderPath("Desktop")
+cd $DesktopPath
+cd Andres
+cd Andres19860914
+git checkout -B $ticket
+git add . 
+git commit -va -m $combo
+git push -u origin $ticket
+222
